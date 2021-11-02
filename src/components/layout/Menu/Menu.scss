@@ -1,0 +1,16 @@
+.nav-menu{
+    height: max-content;
+    background-color: #001529;
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    a{  
+        width: 100%;
+        padding: 0.8em 0.2em;
+        text-align: center;
+        color: rgb(240, 238, 238);
+        border-bottom: 1px solid rgb(240, 238, 238);
+    }
+}
