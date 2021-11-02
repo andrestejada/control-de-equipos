@@ -1,12 +1,14 @@
-import React from 'react'
-import { Form, Input, Button } from 'antd'
+import { Form, Input, Button,Spin } from 'antd'
 import { UseForm } from '../../../../hooks/useForm'
 import { useDispatch } from 'react-redux'
 import { saveNewEquipment } from '../../../../actions/equipmentActions'
 import { formEquipmentType } from '../../../../types/equipmentTypes';
+import { useState } from 'react';
+import Spinner from '../../../layout/Spinner/Spinner';
 
 const EquipmentsPages = () => {
   const dispatch = useDispatch();
+  const [loading, setLoading] = useState<Boolean>(false)
   const initialValues:formEquipmentType={
     tag:'',
     descripcion:'',
@@ -23,8 +25,10 @@ const EquipmentsPages = () => {
   const [values,onChangeValues] = UseForm(initialValues)
   const {tag,descripcion,ubicacion,marca,modelo,magnitud,crv,urv,densidad,altura,observaciones} = values;
 
-  const OnSubmit =(formValues:any)=>{
-    dispatch( saveNewEquipment( formValues))
+  const OnSubmit =async(formValues:any)=>{
+    setLoading(true)
+    await dispatch( saveNewEquipment( formValues))
+    setLoading(false)
   }
   return (
     <div className='form-box'>
@@ -150,9 +154,15 @@ const EquipmentsPages = () => {
             type="primary" 
             htmlType="submit"
             block
+            disabled={ loading ? true :false}
         >
           Ingresar Equipo
         </Button>
+        {
+            loading
+                ? <Spinner />
+                :null
+        }
       </Form>
     </div>
   )
