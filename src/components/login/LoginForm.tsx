@@ -30,8 +30,7 @@ export const LoginForm = () => {
   const [msg, setMsg] = useState<String>('')
   const [error, setError] = useState<Boolean>(false)
   const [loading, setLoading] = useState<Boolean>(false)
-  console.log(msg,error);
-
+  
   const handleOnSubmit=(e:FormEvent)=>{
     e.preventDefault();
     setLoading(true)
