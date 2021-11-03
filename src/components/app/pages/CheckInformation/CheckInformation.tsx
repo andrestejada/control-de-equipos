@@ -18,7 +18,7 @@ const CheckInformation = () => {
         setError(false)
         setIsLoading(false)
     }
-
+    console.log('holi')
     return (
         <div>
             <Search
