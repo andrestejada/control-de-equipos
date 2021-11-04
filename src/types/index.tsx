@@ -1,0 +1,2 @@
+export const SING_IN_SUCCESS ="SING_IN_SUCCESS"
+export const START_LODING ="START_LODING"
