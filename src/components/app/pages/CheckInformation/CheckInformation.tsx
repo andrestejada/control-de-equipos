@@ -21,7 +21,7 @@ const CheckInformation = () => {
     return (
         <div>
             <Search
-                placeholder="input search text"
+                placeholder="busca por tag , marca , descripcion, magnitud"
                 allowClear
                 enterButton="Search"
                 size="large"
