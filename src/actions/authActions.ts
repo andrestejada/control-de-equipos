@@ -19,7 +19,7 @@ export const signIn =(email:string,password:string)=>{
     }
 }
 
-const signInSucess=(data:any)=>({
+export const signInSucess=(data:any)=>({
     type:SING_IN_SUCCESS,
     payload:data
 })
