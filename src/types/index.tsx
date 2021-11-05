@@ -1,2 +1,3 @@
 export const SING_IN_SUCCESS ="SING_IN_SUCCESS"
 export const START_LODING ="START_LODING"
+export const START_SING_OUT ="START_SING_OUT"

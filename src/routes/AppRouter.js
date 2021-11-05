@@ -24,7 +24,10 @@ const AppRouter = () => {
     const dispatch = useDispatch();
     const {isAuth,loading} = useSelector(state => state.auth)
     
-
+    const [IsLoading, setIsloading] = useState(true)    
+    useEffect(() => {
+       setIsloading(loading)
+    }, [loading])
     useEffect(() => {        
         // check if the user sesion is active
         onAuthStateChanged(auth, (user) => {
@@ -38,7 +41,7 @@ const AppRouter = () => {
           });
     }, [dispatch])
 
-    if(loading )return <SpinnerScreen/>
+    if(IsLoading )return <SpinnerScreen/>
     return (
         <Router>
         <div>
