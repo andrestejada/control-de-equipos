@@ -1,5 +1,5 @@
 import { Action, AnyAction } from 'redux'
-import { SING_IN_SUCCESS, START_LODING } from '../types/index';
+import { SING_IN_SUCCESS, START_LODING, START_SING_OUT } from '../types/index';
 
 const initialState={
     isAuth:false,
@@ -18,11 +18,13 @@ export const authReducer =(state=initialState,action:AnyAction)=>{
                     uid:action.payload.uid
                 }
             }
-        case START_LODING:
-            return{
-                ...state,
-                loading:action.payload
-            }
+            case START_LODING:
+                return{
+                    ...state,
+                    loading:action.payload
+                }
+            case START_SING_OUT:
+                return initialState
         default :
         return initialState
     }

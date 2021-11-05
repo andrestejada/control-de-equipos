@@ -3,6 +3,7 @@ import WelcomePage from '../../app/pages/welcomePage/WelcomePage'
 import './MainContent.scss'
 import EquipmentsPages from '../../app/pages/SaveEquipments/EquipmentsPages';
 import CheckInformation from '../../app/pages/CheckInformation/CheckInformation';
+import LogOut from '../LogOut/LogOut';
 
 const MainContent = () => {
     return (
@@ -13,6 +14,7 @@ const MainContent = () => {
                     <Route path='/ingresar-equipos' exact component={EquipmentsPages}/>
                     <Route path='/consultas' exact component={CheckInformation}/>
                 </Switch>
+                <LogOut/>
             </main>
        
     )
