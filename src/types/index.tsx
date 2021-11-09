@@ -1,3 +1,8 @@
 export const SING_IN_SUCCESS ="SING_IN_SUCCESS"
 export const START_LODING ="START_LODING"
 export const START_SING_OUT ="START_SING_OUT"
+export const SIGN_IN_FAIL ="SIGN_IN_FAIL"
+
+//Equipments
+export const CHEKING_SUCCESS ="CHEKING_SUCCESS"
+export const CHEKING_FAIL ="CHEKING_FAIL"

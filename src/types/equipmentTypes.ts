@@ -12,3 +12,20 @@ export interface formEquipmentType{
     altura:string;
     observaciones:string;
 }
+
+
+export const CHEKING_SUCCESS ="CHEKING_SUCCESS"
+export const CHEKING_FAIL ="CHEKING_FAIL"
+
+interface CheckingSuccess{
+    readonly type:  'CHEKING_SUCCESS',
+    payload:formEquipmentType[] 
+}
+interface CheckingFail{
+    readonly type: 'CHEKING_FAIL',
+    payload:string
+}
+
+export type EquipAction = 
+            | CheckingSuccess 
+            | CheckingFail

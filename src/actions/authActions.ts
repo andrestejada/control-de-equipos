@@ -2,18 +2,20 @@ import { signInWithEmailAndPassword ,signOut } from 'firebase/auth';
 import { auth } from '../firebase/firebase-config';
 import {  SING_IN_SUCCESS } from '../types';
 import { authMessages } from './messagesActions';
-import { START_LODING, START_SING_OUT } from '../types/index';
+import { START_LODING, START_SING_OUT, SIGN_IN_FAIL } from '../types/index';
+import { AppDispatch } from '../store/index';
 
 
 
 export const signIn =(email:string,password:string)=>{
 
-    return async(dispatch:any)=>{
+    return async(dispatch:AppDispatch)=>{
         try {
             dispatch(startLoading(true))
             const user = (await signInWithEmailAndPassword(auth,email,password)).user
             dispatch(signInSucess(user))
-        } catch (error:any) {                        
+        } catch (error:any) {                  
+            dispatch(singInFail())      
             dispatch(authMessages(error.code))
         }
     }
@@ -28,6 +30,9 @@ export const signInSucess=(data:any)=>({
 export const startLoading=(state:boolean)=>({
     type:START_LODING,
     payload:state
+})
+export const singInFail=()=>({
+    type:SIGN_IN_FAIL,    
 })
 
 export const logOutSesion =()=>{

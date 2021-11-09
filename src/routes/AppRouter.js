@@ -5,8 +5,7 @@ import { auth } from '../firebase/firebase-config';
 import {
     BrowserRouter as Router,
     Switch,
-    Redirect,
-    Route    
+     
   } from 'react-router-dom';
 
 import {PublicRoute} from './PublicRoute'
@@ -34,9 +33,8 @@ const AppRouter = () => {
             if (user) {
                 //the sesion is active
                 dispatch(signInSucess(user))
-              console.log(user)
             } else {
-                console.log(user)
+                setIsloading(false)
             }
           });
     }, [dispatch])

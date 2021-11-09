@@ -1,14 +1,15 @@
-import { AnyAction } from 'redux'
+import { MessageAction } from '../types/messageTypes';
+
 interface Messages{
     message:string,
     errorMsg:boolean
 }
-const initialState={
+const initialState:Messages={
     message:'',
     errorMsg:false
 }
 
-export const messagesReducer =(state=initialState,action:AnyAction)=>{
+export const messagesReducer =(state:Messages=initialState,action:MessageAction)=>{
     switch(action.type){
         case 'auth/user-not-found':
             return{
@@ -22,7 +23,8 @@ export const messagesReducer =(state=initialState,action:AnyAction)=>{
                 message:'La contraseña es invalida',
                 errorMsg:true
             }
+        
         default :
-        return initialState
+        return state
     }
 }
