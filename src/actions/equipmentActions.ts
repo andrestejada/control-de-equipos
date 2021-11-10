@@ -26,7 +26,7 @@ export const saveNewEquipment =(data:formEquipmentType)=>{
 export const searchEquipments =(term:string)=>{
     return async (dispatch:Dispatch<EquipAction>)=>{
         try {
-            const searchTerm:string[] = ['marca','tag']
+            const searchTerm:string[] = ['marca','magnitud','tag']
             let searchResults:any[] = []
             for (let i = 0; i < searchTerm.length; i++) {
                 const q = query(collection(db, "equipos"), where(`${searchTerm[i]}`, "==", term));
@@ -57,4 +57,7 @@ const searchEquipmentsSucess=(data:formEquipmentType[]):EquipAction=>({
 const searchEquipmentsFail=(msg:string):EquipAction=>({
     type:'CHEKING_FAIL',
     payload:msg
+})
+export const cleanSearchData=():EquipAction=>({
+    type:'CHEKING_CLEAN',   
 })

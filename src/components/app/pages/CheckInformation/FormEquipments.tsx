@@ -4,42 +4,48 @@ import { useDispatch } from 'react-redux';
 import { formEquipmentType } from '../../../../types/equipmentTypes';
 import { UseForm } from '../../../../hooks/useForm';
 import Spinner from '../../../layout/Spinner/Spinner';
+import { PoweroffOutlined } from '@ant-design/icons';
 
-
-export const FormEquipments = () => {
+interface props{
+  equipment:formEquipmentType
+}
+export const FormEquipments = ({equipment}:props) => {
+    const {
+      tag,
+      descripcion,
+      altura,
+      densidad,
+      magnitud,
+      marca,
+      crv,
+      modelo,
+      ubicacion,
+      urv,
+      observaciones
+    }= equipment
     const dispatch = useDispatch();
     const [loading, setLoading] = useState<Boolean>(false)
-    const initialValues:formEquipmentType={
-      tag:'',
-      descripcion:'',
-      ubicacion:'',
-      marca:'',
-      modelo:'',
-      magnitud:'',
-      crv:'',
-      urv:'',
-      densidad:'',
-      altura:'',
-      observaciones:'',
+    console.log(tag);
+    const onChangeValues=()=>{
+
     }
-    const [values,onChangeValues] = UseForm(initialValues)
-    const {tag,descripcion,ubicacion,marca,modelo,magnitud,crv,urv,densidad,altura,observaciones} = values;
     return (
         <div className='form-box'>
       <Form
            //onFinish={OnSubmit}
-           //initialValues={initialValues}
+           initialValues={equipment}
       >
         <Form.Item          
           label='Tag'
-          name='tag'          
+          name='tag'
+                             
         >
           <Input 
             type='text' 
             name='tag'
             value={tag}
-            onChange={onChangeValues}
             readOnly
+            //onChange={onChangeValues}            
           />
         </Form.Item>
         <Form.Item          
@@ -51,7 +57,8 @@ export const FormEquipments = () => {
             type='text'
             name='descripcion'
             value={descripcion}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -63,7 +70,8 @@ export const FormEquipments = () => {
             type='text'
             name='ubicacion'
             value={ubicacion}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -74,7 +82,8 @@ export const FormEquipments = () => {
             type='text'
             name='marca'
             value={marca}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -85,7 +94,8 @@ export const FormEquipments = () => {
             type='text'
             name='modelo'
             value={modelo}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -96,7 +106,8 @@ export const FormEquipments = () => {
             type='text'
             name='magnitud'
             value={magnitud}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -107,7 +118,8 @@ export const FormEquipments = () => {
             type='text'
             name='crv'
             value={crv}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -118,7 +130,8 @@ export const FormEquipments = () => {
             type='text'
             name='densidad'
             value={densidad}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item          
@@ -129,7 +142,8 @@ export const FormEquipments = () => {
             type='text'
             name='altura'
             value={altura}
-            onChange={onChangeValues}
+            // onChange={onChangeValues}
+            readOnly
           />
         </Form.Item>
         <Form.Item
@@ -140,7 +154,8 @@ export const FormEquipments = () => {
           <Input.TextArea                       
             name='observaciones'
             value={observaciones}    
-            onChange={onChangeValues}        
+            // onChange={onChangeValues}    
+            readOnly    
           />
         </Form.Item>
         

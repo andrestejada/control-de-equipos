@@ -27,6 +27,8 @@ export const equipmentsReducer=(state: Equipments = initialState, action: EquipA
                 msg: action.payload,
                 error: true,
             };
+        case 'CHEKING_CLEAN':
+            return initialState
         default:
             return state;
     }

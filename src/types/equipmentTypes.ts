@@ -25,7 +25,11 @@ interface CheckingFail{
     readonly type: 'CHEKING_FAIL',
     payload:string
 }
+interface CheckingClean{
+    readonly type: 'CHEKING_CLEAN',    
+}
 
 export type EquipAction = 
             | CheckingSuccess 
             | CheckingFail
+            | CheckingClean
