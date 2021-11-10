@@ -26,9 +26,7 @@ export const FormEquipments = ({equipment}:props) => {
     const dispatch = useDispatch();
     const [loading, setLoading] = useState<Boolean>(false)
     console.log(tag);
-    const onChangeValues=()=>{
-
-    }
+    
     return (
         <div className='form-box'>
       <Form
@@ -118,6 +116,18 @@ export const FormEquipments = ({equipment}:props) => {
             type='text'
             name='crv'
             value={crv}
+            // onChange={onChangeValues}
+            readOnly
+          />
+        </Form.Item>
+        <Form.Item          
+          label='URV'
+          name='urv'           
+        >
+          <Input 
+            type='text'
+            name='urv'
+            value={urv}
             // onChange={onChangeValues}
             readOnly
           />

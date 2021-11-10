@@ -1,4 +1,4 @@
-import { Form, Input, Button,Spin } from 'antd'
+import { Form, Input, Button,Spin, message } from 'antd'
 import { UseForm } from '../../../../hooks/useForm'
 import { useDispatch } from 'react-redux'
 import { saveNewEquipment } from '../../../../actions/equipmentActions'
@@ -26,9 +26,10 @@ const EquipmentsPages = () => {
   const {tag,descripcion,ubicacion,marca,modelo,magnitud,crv,urv,densidad,altura,observaciones} = values;
 
   const OnSubmit =async(formValues:any)=>{
-    setLoading(true)
+    setLoading(true)    
     await dispatch( saveNewEquipment( formValues))
     setLoading(false)
+    console.log(formValues);
   }
   return (
     <div className='form-box'>
@@ -37,9 +38,9 @@ const EquipmentsPages = () => {
            initialValues={initialValues}
       >
         <Form.Item          
-          label='Tag'
+          label='TAG'
           name='tag'
-          
+          rules={[{ required: true ,message:'El tag es obligatorio' }]}          
         >
           <Input 
             type='text'
@@ -50,8 +51,7 @@ const EquipmentsPages = () => {
         </Form.Item>
         <Form.Item          
           label='Descripción'
-          name='descripcion'
-          
+          name='descripcion'          
         >
           <Input 
             type='text'
@@ -117,6 +117,17 @@ const EquipmentsPages = () => {
           />
         </Form.Item>
         <Form.Item          
+          label='URV'
+          name='urv'           
+        >
+          <Input 
+            type='text'
+            name='urv'
+            value={urv}
+            onChange={onChangeValues}
+          />
+        </Form.Item>
+        <Form.Item          
           label='Densidad'
           name='densidad'           
         >
@@ -139,9 +150,8 @@ const EquipmentsPages = () => {
           />
         </Form.Item>
         <Form.Item
-
           label='Observaciones'
-          name='obsevaciones'           
+          name='observaciones'           
         >
           <Input.TextArea                       
             name='observaciones'
